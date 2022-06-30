@@ -10,7 +10,7 @@ Anhand der Analyse wurde folgendes Lösungsdesign entworfen.
 TODO: schreiben sie wie die Skripte aufgerufen werden sollen (d.h. welche Parameter werden übergeben, gibt es Interaktionen mit dem Skript, läuft es automatisch täglich ab?)
 
 ### Ablauf der Automation
-Skript 1:
+Skript 1: <br>
 ![image](https://user-images.githubusercontent.com/72258756/176767389-081461f0-8ecd-49e5-9a92-96883f4610c0.png)
 
 Skript 2:
