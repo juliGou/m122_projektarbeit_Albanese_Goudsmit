@@ -2,7 +2,9 @@
 [[_TOC_]]
 ## Einführungstext 
 
-TODO: In 2-3 Sätzen beschreiben was die Skripte grundsaetzlich tun.
+Script 1: ermöglicht es mehre Git Repos einfach zu klonen und pullen anhand von einer Datei.
+
+Scipt 2: kann ein File erstellen mit den Commits von mehren Repos. Analysen können erstellt werden wie zum Beispiel wer wieviel gemacht hat.
 
 ## Installationsanleitung für Administratoren
 
