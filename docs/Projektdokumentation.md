@@ -7,7 +7,12 @@ Anhand der Analyse wurde folgendes Lösungsdesign entworfen.
 
 ### Aufruf der Skripte
 
-TODO: schreiben sie wie die Skripte aufgerufen werden sollen (d.h. welche Parameter werden übergeben, gibt es Interaktionen mit dem Skript, läuft es automatisch täglich ab?)
+Script 1: <br>
+Beim aufrufen des Skriptes, muss das File angegeben werden, wellches die Repos und dem Pfad wohin sie geklont werden sollen, enthält. 
+Beispiel: skript1.bash repolist.txt /tmp/repos)
+
+Skript 2: <br>
+Diese Script wird mit 2 Parameters gestartet <Verzeichnis der Repos> und <Pfad des Files>
 
 ### Ablauf der Automation
 Skript 1: <br>
@@ -19,7 +24,9 @@ Skript 2: <br>
 
 ### Konfigurationsdateien
 
-TODO: Definieren sie welche Parameter in welchen Konfigurationsdateien gespeichert werden.
+Script 1: benötigt kein Konfigurationsdatei. Alle Konfigurationen für das Skript werden mit den Parameters beim Aufruf des Sktiptes mitgegeben.
+
+Script 2: benötigt kein Konfigurationsdatei. Alle Konfigurationen für das Skript werden mit den Parameters beim Aufruf des Sktiptes mitgegeben.
 
 ## Abgrenzungen zum Lösungsdesign
 
