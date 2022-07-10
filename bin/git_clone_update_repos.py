@@ -21,7 +21,7 @@ if (inputFile.split('.')[-1] != 'csv' or not os.path.exists(baseDir)):
 if not baseDir.endswith('/'):
     baseDir += '/'
 
-directorys = os.listdir(baseDir)
+directories = os.listdir(baseDir)
 
 with open(inputFile, newline='') as csvfile:
     spamreader = csv.reader(csvfile, delimiter=' ')
@@ -33,16 +33,25 @@ with open(inputFile, newline='') as csvfile:
         repoName = row[1]
         repoDir = baseDir + str(repoName)
         # Pull repo
-        if (repoName in directorys):
+        if (repoName in directories):
             try:
                 logging.info("Pulling repository")
-                gitCommand = "cd " + repoDir + " && git pull"
+                os.system("cd " + repoDir + " && git pull")
             except:
                 logging.error("error: cant pull repo")
         # Clone repo
         else:
-            logging.info("Cloning repository")
-            # The git config part was an error we got, so we just added it here. Now it works.
-            gitCommand = "git clone " + str(repoLink) + " " + repoDir
-        
-        os.system(gitCommand)
+            try:
+                logging.info("Cloning repository")
+                os.system("git clone " + str(repoLink) + " " + repoDir)
+            except:
+                logging.error("error: cant clone repo")
+
+for dir in directories:
+    with open(inputFile) as f:
+        if dir not in f.read().split(' ')[1]:
+            try:
+                logging.info('remove ' + dir)
+                os.system("rm -rf " + baseDir + str(dir))
+            except:
+                logging.error('cant remove ' + dir)
