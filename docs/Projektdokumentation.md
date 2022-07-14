@@ -12,7 +12,7 @@ Beim aufrufen des Skriptes, muss das File angegeben werden, wellches die Repos u
 Beispiel: skript1.bash repolist.txt /tmp/repos)
 
 Skript 2: <br>
-Diese Script wird mit 2 Parameters gestartet <Verzeichnis der Repos> und <Pfad des Files>
+Diese Script wird mit 2 Parameters gestartet <Verzeichnis der Repos> und <Pfad des Files>. Zudem wird im Konfigfile der Pfad des outputfiles mitgegeben.
 
 ### Ablauf der Automation
 Skript 1: <br>
@@ -26,7 +26,10 @@ Skript 2: <br>
 
 Script 1: benötigt kein Konfigurationsdatei. Alle Konfigurationen für das Skript werden mit den Parameters beim Aufruf des Sktiptes mitgegeben.
 
-Script 2: benötigt kein Konfigurationsdatei. Alle Konfigurationen für das Skript werden mit den Parameters beim Aufruf des Sktiptes mitgegeben.
+Script 2: in der Konfigurationsdatei, wird der Pfad des Outputfiles angegeben.
+  <pre>[config] 
+LOG_DIR = '/home/linuxjg/logFiles/'
+</pre>
 
 ## Abgrenzungen zum Lösungsdesign
 
