@@ -9,26 +9,28 @@ Scipt 2: kann ein File erstellen mit den Commits von mehren Repos. Analysen kön
 ## Installationsanleitung für Administratoren
 
 ### Installation
+Wichtig: git und python3 müssen vorinstalliert werden
 
-TODO: Wie ist das skript zu installieren. (z.B. apt-get install ... oder tar xvf .... oder ...)
+Dann muss das Repository geclont werden:
+<pre>git clone https://github.com/juliGou/m122_projektarbeit_Albanese_Goudsmit.git</pre>
 
 ### Konfiguration
 
-TODO: Beschreibung der Konfigurationsfiles (Beispiel-Files erstellen im Repo)
-
-TODO: Wie ist ein allfaelliger Cronjob einzurichten
-
-TODO: Wie sind User-Home-Templates einzurichten
-
-....
+Im Konfigfile kann der Pfad für den Output des Commitlogs angegeben werden. Betrifft Skript 2.
+<pre>[config]
+LOG_DIR = '/home/linuxjg/logFiles/'</pre>
 
 ## Bediensanleitung Benutzer
 
-TODO: Erzeugen der Input-Files beschreiben, falls noetig
+- git clonen:
+<pre>git clone https://github.com/juliGou/m122_projektarbeit_Albanese_Goudsmit.git</pre>
 
-TODO: beschreiben des Scriptaufruf
+Skript 1
+- csv anpassen
+- Script ausführen: <pre>python3 git_clone_update_repos.py -b pfad/der/gitRepos/ -i csv/inputfilename.csv</pre>
 
-TODO: beschreiben der erzeugt files (falls solche erzeugt werden)
+Skript 2
+- konfigfile anpassen
+- Script ausführen: <pre>python3 git_extract_commits.py -b pfad/der/gitRepos/ -f outputfilename.csv</pre>
 
-TODO: Lokation von logfiles und bekannte Fehlermeldungen beschreiben.
 
