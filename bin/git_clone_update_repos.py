@@ -13,8 +13,8 @@ PARSER.add_argument('-i','--inputFile', dest='inputFile', help='input file with 
 inputFile = PARSER.parse_args().inputFile
 baseDir = PARSER.parse_args().baseDir
 
-if (inputFile.split('.')[-1] != 'csv' or not os.path.exists(baseDir)):
-    logging.error('wrong filename')
+if (not os.path.exists(baseDir)):
+    logging.error(baseDir + ' directory does not exist')
     logging.error('exit')
     sys.exit()
 
@@ -23,11 +23,12 @@ if not baseDir.endswith('/'):
 
 directories = os.listdir(baseDir)
 
+# pull repo or clone it when not exist
 with open(inputFile, newline='') as csvfile:
-    spamreader = csv.reader(csvfile, delimiter=' ')
-    for row in spamreader:
+    CSV_READER = csv.reader(csvfile, delimiter=' ')
+    for row in CSV_READER:
         if len(row) != 2:
-            logging.error('wrong filestructure')
+            logging.error('the filestructure of the inputfile is wrong')
             break
         repoLink = row[0]
         repoName = row[1]
@@ -38,15 +39,16 @@ with open(inputFile, newline='') as csvfile:
                 logging.info("Pulling repository")
                 os.system("cd " + repoDir + " && git pull")
             except:
-                logging.error("error: cant pull repo")
+                logging.error("can't pull repo")
         # Clone repo
         else:
             try:
                 logging.info("Cloning repository")
                 os.system("git clone " + str(repoLink) + " " + repoDir)
             except:
-                logging.error("error: cant clone repo")
+                logging.error("can't clone repo")
 
+# remove directory if not in file
 for dir in directories:
     with open(inputFile) as f:
         if dir not in f.read().split(' ')[1]:
@@ -54,4 +56,4 @@ for dir in directories:
                 logging.info('remove ' + dir)
                 os.system("rm -rf " + baseDir + str(dir))
             except:
-                logging.error('cant remove ' + dir)
+                logging.error("can't remove"  + dir)

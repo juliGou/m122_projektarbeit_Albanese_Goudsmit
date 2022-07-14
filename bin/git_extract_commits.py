@@ -22,11 +22,11 @@ filename = PARSER.parse_args().filename
 baseDir = PARSER.parse_args().baseDir
 
 if not os.path.exists(baseDir):
-    logging.error('wrong directory')
+    logging.error(baseDir + ' directory does not exist')
     logging.error('exit')
     sys.exit()
 
-# Checks if output dir exists, if not creates that directory
+# Checks if output dir exists, if not creates it
 file = LOG_DIR + filename
 if not os.path.exists(file):
     logging.info('create directory: ' + file)
@@ -39,8 +39,8 @@ directories = os.listdir(baseDir)
 header = ['Zielverzeichnis', 'Datum', 'Commit-Hash', 'Author']
 
 with open(filename, 'w', newline='\n') as csvfile:
-    WRITER = csv.writer(csvfile, delimiter=',')
-    WRITER.writerow(header)
+    CSV_WRITER = csv.writer(csvfile, delimiter=',')
+    CSV_WRITER.writerow(header)
     for dir in directories:
         try:
             logging.info('write log details to file')
@@ -49,6 +49,6 @@ with open(filename, 'w', newline='\n') as csvfile:
 
             splitedRows = gitOut.split("\n")
             for row in splitedRows:
-                WRITER.writerow(row)
+                CSV_WRITER.writerow(row)
         except:
             logging.error('cant write log infos to file')
