@@ -2,11 +2,42 @@ Skript 1
 
 | Testfall | Testbeschreibung | Testdaten | erwartetes Testresultat | erhaltenes Testresultat | Tester | Testdatum und Teststatus |
 |  - | - | - | - | - | - | - |
-| Erstmaliger Aufruf | Das Skript soll mit einem input file aufgerufen werden, in welchem nur verfügbare Git-URLs sind. Diese sollen in ein noch nicht existierendes Verzeichnis geklont werden:<pre>git_clone_update_repos.bash repolist.txt /tmp/myrepos</pre> | repolist.txt mit folgendem Inhalt:<pre>https://gitlab.com/armindoerzbachtbz/m122_praxisarbeit Armin_Doerzbach<br>https://gitlab.com/wapdc/InfoSearch/Project-2017 Hans_Meier_Peter_Mueller</pre> | Verzeichnis wird erstellt und alle Repos werden darin geklont | | | |
+| Erstmaliger Aufruf | Das Skript soll mit einem input file aufgerufen werden, in welchem nur verfügbare Git-URLs sind. Diese sollen in ein noch nicht existierendes Verzeichnis geklont werden:<pre>git_clone_update_repos.bash repolist.txt /tmp/myrepos</pre> | repolist.txt mit folgendem Inhalt:<pre>https://gitlab.com/armindoerzbachtbz/m122_praxisarbeit Armin_Doerzbach<br>https://gitlab.com/wapdc/InfoSearch/Project-2017 Hans_Meier_Peter_Mueller</pre> | Verzeichnis wird erstellt und alle Repos werden darin geklont | werden geclont und gepullt | | 14.07.22, bestanden |
+| Falsche Parameter | Beim Aufruf wird ein Parameter (Pfad) mitgegeben, der gar nicht existiert, also falsch ist | Aufruf mit folgenden Parametern:<pre>python3 git_clone_update_repos.py -b falscher/pfad/der/Git-Repos> -i file.txt</pre> | 
+Programm gibt eine Fehlermelldung aus und beendet es | Fehlermeldung und Beendung | | 14.07.22, bestanden |
+| Falsche Scriptstrucktur | Im csv file stimmt die Filestrucktur nicht | Folgende Strucktur:<pre>https://github.com/EAlbanese/m122_praxisarbeit_Goudsmit_Albanese.git
+</pre>
+| Programm gibt eine Fehlermelldung | Fehlermeldung | | 14.07.22, bestanden |
+| Pull Repo | Für ein Repo im File gibt es schon ein Verzeichniss | File:<pre>https://github.com/EAlbanese/m122_praxisarbeit_Goudsmit_Albanese.git m122_praxisarbeit_Goudsmit_Albanese
+</pre>
+Verzeichnis:<pre>m122_praxisarbeit_Goudsmit_Albanese
+</pre><br>
+Aufruf: python3 git_clone_update_repos.py -b /home/user/gitRepos -i inputFile.csv | 
+Repo wird gepullt | Repo wird gepullt | | 14.07.22, bestanden |
+| Clone Repo | Für ein Repo im File gibt es noch kein Verzeichniss | File:<pre>https://github.com/EAlbanese/m122_praxisarbeit_Goudsmit_Albanese.git m122_praxisarbeit_Goudsmit_Albanese
+</pre>
+Verzeichnis:
+Aufruf: python3 git_clone_update_repos.py -b /home/user/gitRepos -i inputFile.csv | 
+Repo wird geclont | Repo wird geclont | | 14.07.22, bestanden |
+| Delete Repo | Ein Verzeichniss, dass nicht in der Liste steht | File:<pre></pre>
+Verzeichnis:<pre>m122_praxisarbeit_Goudsmit_Albanese
+</pre><br>
+Aufruf: python3 git_clone_update_repos.py -b /home/user/gitRepos -i inputFile.csv | 
+Repo wird gelöscht | Repo wird gelöscht | | 14.07.22, bestanden |
 
 
 Skript 2
 
 | Testfall | Testbeschreibung | Testdaten | erwartetes Testresultat | erhaltenes Testresultat | Tester | Testdatum und Teststatus |
 |  - | - | - | - | - | - | - |
-| Erstmaliger Aufruf | Das Skript soll mit einem Verzeichnis als parameter augerufen werden in welchem 2 Repos sind:<pre> git_extract_commits.bash /tmp/myrepos /tmp/commits.csv</pre> | Verzeichnis mit den GIT-Repos die mit dem Skript 1 geklont wurden:<pre>/tmp/myrepos</pre> | Alle Repos aus /tmp/myrepos werden gelesen und ein File /tmp/commits.csv erstellt mit allen Commits beider Repos | | | |
+| Erstmaliger Aufruf | Das Skript soll mit einem Verzeichnis als parameter augerufen werden in welchem 2 Repos sind:<pre> python3 git_extract_commits.bash -b /tmp/myrepos -f commits.csv</pre> | Verzeichnis mit den GIT-Repos die mit dem Skript 1 geklont wurden:<pre>/tmp/myrepos</pre> | Alle Repos aus /tmp/myrepos werden gelesen und ein File commits.csv erstellt mit allen Commits beider Repos | Testerwartung eingetroffen | | 14.07.22, bestanden |
+| Falsche Parameter | Beim Aufruf wird ein Parameter (Pfad) mitgegeben, der gar nicht existiert, also falsch ist | Aufruf mit folgenden Parametern:<pre>python3 git_clone_update_repos.py -b falscher/pfad/der/Git-Repos> -i file.txt</pre> | 
+Programm gibt eine Fehlermelldung aus und beendet es | Fehlermeldung und Beendung | | 14.07.22, bestanden |
+| Outputfile und Pfad existieren nicht | Das FIle und der Pfad bestehen noch nicht. Der Pfad sollte erstellt werden | Aufruf mit folgenden Parametern:<pre>python3 git_extract_commits.py -b pfad/der/git-Repos -f Filename</pre> | 
+Pfad und FIle werden erstellt | Pfad und FIle werden erstellt | | 14.07.22, bestanden |
+| Header richtig formatiert | Im outputfile sollten die Headers den Vorgaben ensprechen | Aufruf mit folgenden Parametern:<pre>python3 git_extract_commits.py -b pfad/der/git-Repos -f Filename</pre> | 
+Header richtig dargestellt | Header richtig dargestellt | | 14.07.22, bestanden |
+| Commit richtig formatiert | Im outputfile sollten die Commitinfos den Vorgaben ensprechen | Aufruf mit folgenden Parametern:<pre>python3 git_extract_commits.py -b pfad/der/git-Repos -f Filename</pre> | 
+Commitlog richtig dargestellt | Commitlog richtig dargestellt | | 14.07.22, bestanden |
+| Commit aller Repos | Im outputfile sollten die Commitinfos allen Repos im Verzeichnis entsprechen | Aufruf mit folgenden Parametern:<pre>python3 git_extract_commits.py -b pfad/der/git-Repos -f Filename</pre> | 
+Commitlog richtig | Commitlog richtig | | 14.07.22, bestanden |
