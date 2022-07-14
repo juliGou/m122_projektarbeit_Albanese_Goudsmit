@@ -31,6 +31,3 @@ Script 2: in der Konfigurationsdatei, wird der Pfad des Outputfiles angegeben.
 LOG_DIR = '/home/linuxjg/logFiles/'
 </pre>
 
-## Abgrenzungen zum Lösungsdesign
-
-TODO: Nachdem das Programm verwirklicht wurde hier die unterschiede von der Implemenatino zum Lösungsdesign beschreiben (was wurde anders gemacht, was wurde nicht gemacht, was wurde zusaetzlich gemacht)
