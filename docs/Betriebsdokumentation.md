@@ -30,7 +30,7 @@ Skript 1
 - Script ausführen: <pre>python3 git_clone_update_repos.py -b pfad/der/gitRepos/ -i csv/inputfilename.csv</pre>
 
 Skript 2
-- konfigfile anpassen
+- [Konfigurationsdatei](https://github.com/juliGou/m122_projektarbeit_Albanese_Goudsmit/master/etc/config.conf) anpassen
 - Script ausführen: <pre>python3 git_extract_commits.py -b pfad/der/gitRepos/ -f outputfilename.csv</pre>
 
 
