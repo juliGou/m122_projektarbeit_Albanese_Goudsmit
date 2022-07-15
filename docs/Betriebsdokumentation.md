@@ -26,7 +26,7 @@ LOG_DIR = '/home/linuxjg/logFiles/'</pre>
 <pre>git clone https://github.com/juliGou/m122_projektarbeit_Albanese_Goudsmit.git</pre>
 
 Skript 1
-- csv anpassen
+- [csv](https://github.com/juliGou/m122_projektarbeit_Albanese_Goudsmit/master/bin/inputFile.csv) anpassen
 - Script ausführen: <pre>python3 git_clone_update_repos.py -b pfad/der/gitRepos/ -i csv/inputfilename.csv</pre>
 
 Skript 2
