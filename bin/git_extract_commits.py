@@ -27,10 +27,11 @@ if not os.path.exists(baseDir):
     sys.exit()
 
 # Checks if output dir exists, if not creates it
+# file = LOG_DIR
+# if not os.path.exists(file):
+#     logging.info('create directory: ' + file)
+#     os.makedirs(file)
 file = LOG_DIR + filename
-if not os.path.exists(file):
-    logging.info('create directory: ' + file)
-    os.makedirs(file)
 
 if not baseDir.endswith('/'):
     baseDir += '/'
@@ -49,6 +50,8 @@ with open(filename, 'w', newline='\n') as csvfile:
 
             splitedRows = gitOut.split("\n")
             for row in splitedRows:
-                CSV_WRITER.writerow(row)
+                out = row.split(",")
+                CSV_WRITER.writerow(out)
         except:
             logging.error('cant write log infos to file')
+    
