@@ -9,10 +9,11 @@ Anhand der Analyse wurde folgendes Lösungsdesign entworfen.
 
 Script 1: <br>
 Beim aufrufen des Skriptes, muss das File angegeben werden, wellches die Repos und dem Pfad wohin sie geklont werden sollen, enthält. 
-Beispiel: skript1.bash repolist.txt /tmp/repos)
+<br>Beispiel: skript1.bash -b /home/user/repos -i repolist.csv
 
 Skript 2: <br>
 Diese Script wird mit 2 Parameters gestartet <Verzeichnis der Repos> und <Pfad des Files>. Zudem wird im Konfigfile der Pfad des outputfiles mitgegeben.
+<br>Beispiel: skript1.bash -b /home/user/repos -f output.csv
 
 ### Ablauf der Automation
 Skript 1: <br>
@@ -26,7 +27,7 @@ Skript 2: <br>
 
 Script 1: benötigt kein Konfigurationsdatei. Alle Konfigurationen für das Skript werden mit den Parameters beim Aufruf des Sktiptes mitgegeben.
 
-Script 2: in der Konfigurationsdatei, wird der Pfad des Outputfiles angegeben.
+Script 2: in der [Konfigurationsdatei](https://github.com/juliGou/m122_projektarbeit_Albanese_Goudsmit/master/etc/config.conf), wird der Pfad des Outputfiles angegeben.
   <pre>[config] 
 LOG_DIR = '/home/linuxjg/logFiles/'
 </pre>
